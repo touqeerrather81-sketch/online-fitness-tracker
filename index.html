@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your workouts, build better habits, and reach your fitness goals.">
+  <title>Fitness Tracker — Build a Stronger You</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Fitness Tracker home">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M13 15V25M9 17V23M17 12V28M23 12V28M27 15V25M31 17V23M17 20H23"
+            stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>FITNESS <strong>TRACKER</strong></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it Works</a>
+      <a class="button button-secondary nav-login-mobile" href="login.html">Login</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="button button-secondary header-login" href="login.html">Login</a>
+      <a class="button button-primary header-button" href="login.html">
+        Get Started <span aria-hidden="true">↗</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button"
+              aria-label="Open menu" aria-controls="mainNav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> TRACK · IMPROVE · STAY CONSISTENT</p>
+
+        <h1>Build a<br><span>Stronger You</span></h1>
+
+        <p class="hero-description">
+          Track your workouts, stay consistent, and see real progress.
+          Simple tools to help you build better habits and reach your
+          fitness goals.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="login.html">
+            Start Tracking <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button-secondary" href="#features">
+            Learn More <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>500<span>+</span></strong>
+            <small>Active Users</small>
+          </div>
+          <div class="stat">
+            <strong>1,000<span>+</span></strong>
+            <small>Workouts Logged</small>
+          </div>
+          <div class="stat">
+            <strong>95<span>%</span></strong>
+            <small>Stay Consistent</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Fitness progress preview">
+        <div class="hero-circle"></div>
+        <img
+          class="hero-athlete"
+          src="images/hero-athlete.jpg"
+          alt="Athlete training with dumbbells"
+        >
+
+        <div class="floating-card activity-card">
+          <div class="card-heading">
+            <div>
+              <p class="card-label">YOUR PROGRESS</p>
+              <h3>Weekly Activity</h3>
+            </div>
+            <span class="mini-icon">↗</span>
+          </div>
+          <div class="activity-total">4 <span>workouts this week</span></div>
+          <div class="bar-chart" aria-label="Weekly workout activity">
+            <div class="bar-column"><span style="--bar:42%"></span><small>Mon</small></div>
+            <div class="bar-column"><span style="--bar:72%"></span><small>Tue</small></div>
+            <div class="bar-column"><span style="--bar:55%"></span><small>Wed</small></div>
+            <div class="bar-column"><span style="--bar:88%"></span><small>Thu</small></div>
+            <div class="bar-column"><span style="--bar:34%"></span><small>Fri</small></div>
+            <div class="bar-column"><span style="--bar:65%"></span><small>Sat</small></div>
+            <div class="bar-column"><span style="--bar:20%"></span><small>Sun</small></div>
+          </div>
+        </div>
+
+        <div class="floating-card workout-card">
+          <div class="card-heading">
+            <div>
+              <p class="card-label">YOUR PLAN</p>
+              <h3>Today's Workout</h3>
+            </div>
+            <span class="workout-count">4 exercises</span>
+          </div>
+          <div class="workout-item">
+            <span class="exercise-icon">B</span>
+            <span>Bench Press</span><span class="exercise-check">✓</span>
+          </div>
+          <div class="workout-item">
+            <span class="exercise-icon">S</span>
+            <span>Shoulder Press</span><span class="exercise-check">✓</span>
+          </div>
+          <div class="workout-item">
+            <span class="exercise-icon">C</span>
+            <span>Bicep Curl</span><span class="exercise-check">✓</span>
+          </div>
+          <div class="workout-item">
+            <span class="exercise-icon">T</span>
+            <span>Tricep Pushdown</span><span class="exercise-check">✓</span>
+          </div>
+        </div>
+
+        <div class="floating-card goal-card">
+          <div class="goal-top">
+            <span class="goal-icon">✓</span>
+            <div><p class="card-label">WEEKLY GOAL</p><h3>You're on track!</h3></div>
+          </div>
+          <div class="goal-progress"><span></span></div>
+          <p class="goal-caption"><strong>75%</strong><span>3 of 4 workouts</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section-wrap" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">EVERYTHING YOU NEED</p>
+        <h2>Make every workout count.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-item">
+          <span class="feature-icon">↗</span>
+          <h3>Track Workouts</h3>
+          <p>Log your exercises and keep your training organised in one place.</p>
+        </article>
+        <article class="feature-item">
+          <span class="feature-icon">▥</span>
+          <h3>See Progress</h3>
+          <p>Understand your routine and see how far you've come over time.</p>
+        </article>
+        <article class="feature-item">
+          <span class="feature-icon">✓</span>
+          <h3>Stay Consistent</h3>
+          <p>Set achievable goals, build better habits, and keep showing up.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="how-section section-wrap" id="how-it-works">
+      <p class="eyebrow">YOUR ROUTINE, SIMPLIFIED</p>
+      <h2>Start small. Stay consistent.</h2>
+      <p>Create your account, record your workouts, and follow your progress as you build a stronger routine.</p>
+    </section>
+
+    <section class="final-cta section-wrap">
+      <p class="eyebrow">START YOUR FITNESS JOURNEY TODAY</p>
+      <h2>Small Steps. <span>Big Results.</span></h2>
+      <p>Your goals are closer than you think. Let's get to work.</p>
+      <a class="button button-primary" href="login.html">Get Started <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html">FITNESS <strong>TRACKER</strong></a>
+    <p>Build better habits. One workout at a time.</p>
+  </footer>
+
+  <script src="nav.js" defer></script>
+</body>
+</html>

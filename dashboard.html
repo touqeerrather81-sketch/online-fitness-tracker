@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Fitness Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+
+  <button class="sidebar-toggle" id="sidebarToggle" type="button"
+          aria-label="Open navigation menu" aria-controls="dashboardSidebar"
+          aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <button class="sidebar-backdrop" id="sidebarBackdrop" type="button"
+          aria-label="Close navigation menu" tabindex="-1"></button>
+
+  <header class="site-header dashboard-header" id="dashboardSidebar">
+    <a class="brand" href="index.html" aria-label="Fitness Tracker home">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M13 15V25M9 17V23M17 12V28M23 12V28M27 15V25M31 17V23M17 20H23" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span>FITNESS <strong>TRACKER</strong><small>Better Health · Stronger You</small></span>
+    </a>
+    <p class="sidebar-label">WORKSPACE</p>
+    <nav class="dashboard-nav" aria-label="Main navigation">
+      <a class="active" href="#overview"><span aria-hidden="true">⌂</span>Dashboard</a>
+      <a href="#workouts"><span aria-hidden="true">↗</span>Workouts</a>
+      <a href="#schedule"><span aria-hidden="true">▦</span>Workout Schedule</a>
+      <a href="#goals"><span aria-hidden="true">⌁</span>Goals & Progress</a>
+      <button class="sidebar-nav-action" id="sidebarProfileLink" type="button"><span aria-hidden="true">♙</span>Profile</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-photo" role="img" aria-label="Weights in a gym"></div>
+      <p>DISCIPLINE BUILDS<br><strong>FREEDOM.</strong></p>
+      <button class="profile-button" id="profileButton" type="button">
+        <span class="profile-avatar" id="profileAvatar">U</span>
+        <span class="profile-copy"><strong id="profileName">My Account</strong><small id="profileRoleLabel" data-role="member">Member account</small></span>
+        <span aria-hidden="true">⌄</span>
+      </button>
+      <button class="sidebar-logout" id="sidebarLogout" type="button"><span aria-hidden="true">↪</span> Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard-main" id="overview">
+    <section class="dashboard-welcome">
+      <div class="welcome-copy">
+        <p class="eyebrow">YOUR PERSONAL FITNESS SPACE</p>
+        <h1>Let's get stronger<span>.</span></h1>
+        <p>Consistency today builds the results of tomorrow.</p>
+        <a class="button button-primary" href="#workouts">+ Add Workout</a>
+      </div>
+      <div class="welcome-photo" role="img" aria-label="Athlete looking across a mountain landscape">
+        <div><span>STRONGER</span><strong>Everyday.</strong></div>
+      </div>
+    </section>
+
+    <section class="dashboard-summary" id="progress" aria-label="Fitness summary">
+      <article class="summary-card">
+        <span class="summary-label">Workouts This Week</span>
+        <div class="summary-value"><strong id="weeklyCount">0</strong><span class="summary-unit">sessions</span></div>
+        <p>Recorded this week</p>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Total Workouts</span>
+        <div class="summary-value"><strong id="totalCount">0</strong><span class="summary-unit">sessions</span></div>
+        <p>All recorded sessions</p>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label">Weekly Goal</span>
+        <div class="summary-value"><strong id="goalCount">0%</strong></div>
+        <div class="summary-progress"><span id="goalProgress"></span></div>
+        <p id="goalCaption">0 of 4 workouts completed</p>
+      </article>
+    </section>
+
+    <section class="dashboard-panel role-access-panel" id="roleAccessPanel" hidden aria-live="polite" style="margin-bottom: 22px;">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">ACCOUNT PERMISSIONS</p>
+          <h2 id="roleAccessTitle">Staff access</h2>
+        </div>
+        <span class="panel-tag">Verified role</span>
+      </div>
+      <p id="roleAccessDescription">Role permissions are enforced by Firebase.</p>
+    </section>
+
+    <section class="dashboard-panel role-access-panel" id="staffAdminPanel" hidden aria-live="polite" style="margin-bottom: 22px;">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">SHARED RECORDS</p>
+          <h2>Staff &amp; Admin Overview</h2>
+        </div>
+        <span class="panel-tag">Read only</span>
+      </div>
+      <p id="staffAdminMessage">Shared records will appear here when your trusted role is enabled.</p>
+      <div id="staffAdminRecords" class="role-record-list"></div>
+      <p class="role-security-note">Roles come from trusted Firebase custom claims. This screen never grants or changes roles.</p>
+    </section>
+
+    <section class="dashboard-columns">
+      <div class="dashboard-panel" id="workouts">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">YOUR TRAINING</p>
+            <h2>Workout Log</h2>
+          </div>
+          <span class="panel-tag">This week</span>
+        </div>
+
+        <form id="workoutForm" class="workout-form">
+          <div class="form-field">
+            <label for="workoutName">Workout name</label>
+            <input id="workoutName" type="text" placeholder="e.g. Chest & Triceps" maxlength="70" required>
+          </div>
+
+          <div class="workout-form-row">
+            <div class="form-field">
+              <label for="workoutType">Workout type</label>
+              <select id="workoutType" required>
+                <option value="Strength">Strength</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Calisthenics">Calisthenics</option>
+                <option value="Flexibility">Flexibility</option>
+                <option value="Boxing">Boxing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="workoutMinutes">Duration (min)</label>
+              <input id="workoutMinutes" type="number" min="1" max="600" placeholder="45" required>
+            </div>
+          </div>
+
+          <div class="workout-form-row">
+            <div class="form-field">
+              <label for="workoutDate">Workout date</label>
+              <input id="workoutDate" type="date" required>
+            </div>
+            <div class="form-field">
+              <label for="workoutStatus">Status</label>
+              <select id="workoutStatus" required>
+                <option value="Completed">Completed</option>
+                <option value="Planned">Planned</option>
+                <option value="Missed">Missed</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="button button-primary workout-submit" type="submit">Save Workout <span>→</span></button>
+          <p class="form-message" id="workoutMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="workout-tools">
+  <input
+    type="search"
+    id="workoutSearch"
+    placeholder="Search workouts..."
+    aria-label="Search workouts"
+  />
+
+  <select id="workoutTypeFilter" aria-label="Filter by workout type">
+    <option value="all">All workout types</option>
+    <option value="Strength">Strength</option>
+    <option value="Cardio">Cardio</option>
+    <option value="Calisthenics">Calisthenics</option>
+    <option value="Flexibility">Flexibility</option>
+    <option value="Boxing">Boxing</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+        <div class="workout-list-heading">
+          <h3>Recent Workouts</h3>
+          <span id="workoutListCount">0 entries</span>
+        </div>
+        <div class="workout-list" id="workoutList">
+          <div class="empty-state">
+            <span class="empty-state-icon">↗</span>
+            <h3>Your progress starts here</h3>
+            <p>Log your first workout to see it appear here.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="dashboard-side">
+        <section class="dashboard-panel goal-panel" id="goals">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">STAY CONSISTENT</p>
+              <h2>Weekly Goal</h2>
+            </div>
+            <span class="goal-symbol">✓</span>
+          </div>
+
+          <p class="goal-description">Choose a realistic number of workouts to complete each week.</p>
+
+          <div class="goal-selector">
+            <label for="weeklyGoal">Workouts per week</label>
+            <select id="weeklyGoal">
+              <option value="2">2 workouts</option>
+              <option value="3">3 workouts</option>
+              <option value="4" selected>4 workouts</option>
+              <option value="5">5 workouts</option>
+              <option value="6">6 workouts</option>
+              <option value="7">7 workouts</option>
+            </select>
+          </div>
+
+          <div class="large-progress-track"><span id="largeGoalProgress"></span></div>
+          <div class="goal-progress-labels">
+            <strong id="largeGoalPercent">0%</strong>
+            <span id="largeGoalText">0 of 4 workouts</span>
+          </div>
+        </section>
+
+        <section class="dashboard-panel schedule-panel" id="schedule">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">PLAN AHEAD</p>
+              <h2>Workout Schedule</h2>
+            </div>
+            <span class="goal-symbol" aria-hidden="true">↗</span>
+          </div>
+          <form id="scheduleForm" class="schedule-form">
+            <div class="form-field">
+              <label for="scheduleName">Activity</label>
+              <input id="scheduleName" type="text" maxlength="70" placeholder="e.g. Morning cardio" required>
+            </div>
+            <div class="form-field">
+              <label for="scheduleDate">Planned date</label>
+              <input id="scheduleDate" type="date" required>
+            </div>
+            <button class="button button-secondary schedule-submit" type="submit">Add to schedule</button>
+            <p class="form-message" id="scheduleMessage" role="status" aria-live="polite"></p>
+          </form>
+          <div class="schedule-list" id="scheduleList">
+            <p class="schedule-empty">Your planned activities will appear here.</p>
+          </div>
+        </section>
+
+        <section class="dashboard-panel quick-tips">
+          <p class="eyebrow">A LITTLE REMINDER</p>
+          <h2>Consistency beats perfection.</h2>
+          <p>Focus on showing up, recovering well, and making steady progress.</p>
+        </section>
+      </aside>
+    </section>
+
+    <footer class="dashboard-footer">
+      <span>FITNESS TRACKER</span>
+      <span>Your progress, one workout at a time.</span>
+      <a href="index.html">Back to Home ↑</a>
+    </footer>
+  </main>
+
+ <script type="module" src="script.js"></script>
+</body>
+</html>

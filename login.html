@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Fitness Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+  <header class="site-header auth-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M13 15V25M9 17V23M17 12V28M23 12V28M27 15V25M31 17V23M17 20H23"
+            stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>FITNESS <strong>TRACKER</strong></span>
+    </a>
+    <a class="auth-back-link" href="index.html">← Back to Home</a>
+  </header>
+
+  <main class="auth-layout">
+    <section class="auth-intro">
+      <p class="eyebrow">YOUR FITNESS JOURNEY STARTS HERE</p>
+      <h1>Show up today.<br><span>Get stronger tomorrow.</span></h1>
+      <p>Keep your workouts organised, follow your progress, and build a routine that lasts.</p>
+
+      <div class="auth-benefits">
+        <p><span>✓</span> Keep track of your workouts</p>
+        <p><span>✓</span> Work towards your fitness goals</p>
+        <p><span>✓</span> Build consistency over time</p>
+      </div>
+    </section>
+
+    <section class="auth-form-panel">
+      <div class="auth-tabs" role="tablist" aria-label="Account access">
+        <button class="auth-tab active" type="button" id="loginTab" role="tab" aria-selected="true">Log In</button>
+        <button class="auth-tab" type="button" id="signupTab" role="tab" aria-selected="false">Create Account</button>
+      </div>
+
+      <div class="auth-form-content">
+        <h2 id="authTitle">Welcome back</h2>
+        <p class="auth-subtitle" id="authSubtitle">Enter your details to continue.</p>
+
+        <form id="authForm">
+          <div class="form-field" id="nameField" hidden>
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" autocomplete="name">
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" minlength="8" required>
+          </div>
+
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+
+          <button class="button button-primary auth-submit" type="submit" id="authSubmit">Log In <span>→</span></button>
+        </form>
+
+        <p class="auth-switch-copy" id="authSwitchCopy">
+          New to Fitness Tracker? <button type="button" id="switchToSignup">Create an account</button>
+        </p>
+        <p class="auth-note">Your account security will be connected when we set up authentication.</p>
+      </div>
+    </section>
+</main>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
